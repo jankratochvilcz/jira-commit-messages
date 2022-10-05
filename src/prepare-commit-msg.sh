@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
-JIRA_TICKET_REF=$(git branch --show-current | grep -E -o '\w{2}\-\d{4}') 
+JIRA_TICKET_REF=$(git branch --show-current | grep -E -o '\w{2,6}\-\d{2,6}') 
     
-if [ -z "$JIRA_TICKET_REF" ]; then
+if [ ${#JIRA_TICKET_REF} = 0 ]; then
     exit 1;
 fi
 

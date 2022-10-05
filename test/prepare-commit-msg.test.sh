@@ -20,7 +20,7 @@ testWritesMessageIfNoJiraReference() {
     assertEquals "hello" "$actual"
 }
 
-testWritesMessageIfNoJiraReference() {
+testIncludesJiraNumber() {
     branch_name='feature/xa-325'
 
     current_branch=$(git branch --show-current)
@@ -30,7 +30,7 @@ testWritesMessageIfNoJiraReference() {
 
     actual=$(cat $target_message_file)
 
-    assertEquals "[xa-325] hello" "$actual"
+    assertEquals "[XA-325] hello" "$actual"
 
     git checkout $current_branch
     git branch -d $branch_name
